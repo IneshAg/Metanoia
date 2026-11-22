@@ -1,0 +1,1 @@
+{"$schema":"../gen/schemas/desktop-schema.json","identifier":"main-capability","description":"Metanoia local data access","windows":["*"],"permissions":["core:default","sql:default","sql:allow-execute","sql:allow-select","sql:allow-load"]}

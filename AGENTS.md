@@ -1,0 +1,1 @@
+This is the explicitly requested fresh V2 prototype. Never modify or connect writes to ../Metanoia/Data/progress.sqlite3. Own SQLite data and explicit migration are required. Do not copy credentials into frontend assets. Existing Metanoia is preserved. No placeholder or sample activity may be presented as real user progress.

@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "importedAt": "2026-11-20T00:00:00.000Z",
+  "tasks": [
+    {
+      "id": "task-welcome",
+      "title": "Welcome to Metanoia",
+      "day": "2026-11-20",
+      "start": "09:00",
+      "end": "09:30",
+      "minutes": 30,
+      "done": false,
+      "category": "study",
+      "updated": "2026-11-20T00:00:00.000Z"
+    },
+    {
+      "id": "task-plan",
+      "title": "Plan study quest & goals",
+      "day": "2026-11-20",
+      "start": "09:30",
+      "end": "10:00",
+      "minutes": 30,
+      "done": false,
+      "category": "planning",
+      "updated": "2026-11-20T00:00:00.000Z"
+    }
+  ],
+  "courses": [
+    {
+      "id": "course-welcome",
+      "title": "Getting Started with Metanoia",
+      "done": 0,
+      "total": 3,
+      "deadline": "",
+      "nextLesson": "1. Introduction to Focus",
+      "nextUrl": null,
+      "source": "local"
+    }
+  ],
+  "xp": 0,
+  "credits": 0,
+  "focus": null,
+  "sessions": [],
+  "redemptions": [],
+  "rewards": [
+    {
+      "id": "reward-coffee",
+      "title": "Coffee break",
+      "cost": 50,
+      "created": "2026-11-20T00:00:00.000Z"
+    },
+    {
+      "id": "reward-walk",
+      "title": "Afternoon walk",
+      "cost": 100,
+      "created": "2026-11-20T00:00:00.000Z"
+    }
+  ],
+  "habits": [
+    {
+      "id": "habit-focus",
+      "title": "Deep Focus",
+      "source": "local",
+      "archived": false,
+      "days": []
+    },
+    {
+      "id": "habit-reading",
+      "title": "Daily Reading",
+      "source": "local",
+      "archived": false,
+      "days": []
+    }
+  ],
+  "habitsPartial": false,
+  "notes": []
+}

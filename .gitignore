@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Production build artifacts
+dist/
+dist-ssr/
+outputs/*.exe
+*.exe
+
+# Rust / Cargo build cache
+target/
+src-tauri/target/
+
+# Logs, databases & temporary files
+data/
+*.sqlite3
+*.log
+*.tmp
+*.lnk
+
+# Local Environment & Editor
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
