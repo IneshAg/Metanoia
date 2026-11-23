@@ -17,7 +17,7 @@ export function dayMetrics(state:State,day:string):DayMetrics{
   day,totalTasks:tasks.length,completedTasks:completedForDay.length,
   plannedMinutes:tasks.reduce((sum,task)=>sum+(task.minutes||0),0),
   completedWorthMinutes:completedForDay.reduce((sum,task)=>sum+(task.minutes||0),0),
-  focusedMinutes:Math.round(state.sessions.filter(session=>session.state==='complete'&&dayKey(new Date(session.started_utc))===day).reduce((sum,session)=>sum+session.active_seconds/60,0)),
+  focusedMinutes:Math.round(state.sessions.filter(session=>session.state==='complete'&&(session.mode==='work'||!session.mode)&&dayKey(new Date(session.started_utc))===day).reduce((sum,session)=>sum+session.active_seconds/60,0)),
   learningMinutes:Math.round(Math.max(0,events.reduce((sum,event)=>sum+(event.knownWatchSeconds||0),0))/60),
   lessonsCompleted:Math.max(0,events.reduce((sum,event)=>sum+event.delta,0)),
  };

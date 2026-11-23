@@ -138,10 +138,12 @@ export default function Today({
   const overdueMinutes = overdueTasks.reduce((acc, t) => acc + (t.minutes || 0), 0);
 
   const [picked, setPicked] = useState('');
-  const next = tasks.find(t => t.id === picked && !t.done) || tasks.find(t => !t.done);
+  const next = tasks.find(t => t.id === picked && !t.done) || tasks.find(t => !t.done && t.category !== 'leisure') || tasks.find(t => !t.done);
   const complete = tasks.filter(t => t.done).length;
 
-  const planned = tasks.reduce((n, t) => n + (t.minutes || 0), 0);
+  // Work tasks (study, coding, personal) count towards Daily Load capacity; leisure/breaks are rest time
+  const workTasks = tasks.filter(t => t.category !== 'leisure');
+  const planned = workTasks.reduce((n, t) => n + (t.minutes || 0), 0);
   const dailyCapacity = state.settings.dailyCapacityMinutes || 360; // 6 hours default
   const capacityPct = Math.round((planned / dailyCapacity) * 100);
 
@@ -154,7 +156,7 @@ export default function Today({
   const weeklyStats = useMemo(() => {
     const weekAgo = new Date();
     weekAgo.setDate(weekAgo.getDate() - 7);
-    const recentSessions = state.sessions.filter(s => new Date(s.started_utc) >= weekAgo);
+    const recentSessions = state.sessions.filter(s => new Date(s.started_utc) >= weekAgo && (s.mode === 'work' || !s.mode));
     const focusedSec = recentSessions.reduce((acc, s) => acc + (s.active_seconds || 0), 0);
     const focusedHours = Math.round((focusedSec / 3600) * 10) / 10;
 
@@ -290,7 +292,7 @@ export default function Today({
 
   const renderTimelineTask = (t: Task) => {
     const isDone = t.done;
-    const isNow = !isDone && (state.focus?.taskId === t.id || (!state.focus?.taskId && next?.id === t.id));
+    const isNow = !isDone && (state.focus?.taskId === t.id || (!state.focus?.taskId && next?.id === t.id && t.category !== 'leisure'));
     const timeDisplay = t.start || (t.minutes ? `${t.minutes}m` : 'Anytime');
 
     return (
